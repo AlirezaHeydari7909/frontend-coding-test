@@ -1,38 +1,217 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* -------->     humberger button     <--------*/
+
+@media (max-width: 425px) {
+    #navbar{
+        display: flex;
+        align-items: center;
+        flex-flow: column nowrap;
+        position: fixed;
+        top: 0;
+        left: -20rem;
+        height: 100vh;
+        z-index: 1;
+        width: 20rem;
+        transition: all ease 1s;
+    }
+    #navbar.open{
+        display: flex;
+        align-items: center;
+        flex-flow: column nowrap;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 1;
+        width: 10rem;
+    }
+    .navChild{
+        border-bottom: 1px solid #979899;
+    }
+    #menu-burger{
+        background-color: #979899;
+        height: 3rem;
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 0 4px 0;
+        z-index: 2;
+    }
+    .inner-burger{
+        height: 2px;
+        width: 2rem;
+        background-color: rgb(20, 20, 20);
+        transition: all ease 1s;
+        z-index: 2;
+    }
+    .inner-burger::after,
+    .inner-burger::before{
+        position: absolute;
+        content: '';
+        height: 2px;
+        width: 2rem;
+        background-color: rgb(20, 20, 20);
+        transition: all ease 1s;
+    }
+    .inner-burger::after{
+        transform: translateY(.7rem);
+        
+    }
+    .inner-burger::before{
+        transform: translateY(-.7rem);
+    }
+    #menu-burger.open .inner-burger{
+        transform: translateX(-3rem);
+    }
+    #menu-burger.open .inner-burger::after{
+        transform: translateX(3rem) rotate(45deg);
+        
+    }
+    #menu-burger.open .inner-burger::before{
+        transform: translateX(3rem) rotate(-45deg);
+    }
+    
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+
+
+/* -------->    light mode      <--------*/
+
+
+#light {
+    background-color: #c2c7cb;
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#light .switch label {
+    color: #212F3C;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#light #navbar {
+    background-color: #1B4F72;
+    display: flex;
+    border-radius: 6px;
+
 }
 
-.App-link {
-  color: #61dafb;
+#light .navChild {
+    padding: 1.5rem 1.25rem;
+    color: aliceblue;
+    font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#light #home {
+    background-color: #D35400;
+}
+
+#light .second {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#light .num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D35400;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 3rem;
+    color: aliceblue;
+    font-size: xx-large;
+}
+#light .button {
+    display: flex;
+    justify-content: center;
+}
+
+#light button {
+    margin: 2rem;
+    color: aliceblue;
+    background-color: #1B4F72;
+    padding: 1.5rem;
+    border: 0;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+
+/* -------->    dark mode      <--------*/
+
+#dark {
+    background-color: #212F3C;
+    height: 100vh;
+}
+
+#dark .switch label {
+    color: #dee2e6;
+}
+
+#dark #navbar {
+    background-color: #c2c7cb;
+    display: flex;
+
+}
+
+#dark .navChild {
+    padding: 1.5rem 1.25rem;
+    color: black;
+    font-weight: bold;
+
+}
+
+#dark #home {
+    background-color: #D35400;
+    color: aliceblue;
+}
+
+#dark .second {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#dark .num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D35400;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 3rem;
+    color: aliceblue;
+    font-size: xx-large;
+}
+#dark .button {
+    display: flex;
+    justify-content: center;
+}
+
+#dark button {
+    margin: 2rem;
+    color: black;
+    background-color: #c2c7cb;
+    padding: 1.5rem;
+    border: 0;
+    border-radius: 1rem;
+    font-weight: bold;
+}
+
+/* -------->    switch button      <--------*/
+.switch {
+    display: flex;
+    justify-content: center;
+}
+
+label{
+    margin: 0 2rem;
+    display: flex;
+    align-items: center;
 }
